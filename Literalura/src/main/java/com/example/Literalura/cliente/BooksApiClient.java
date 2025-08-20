@@ -18,7 +18,7 @@ public class BooksApiClient {
     private final ObjectMapper mapper;
 
     public BooksApiClient() {
-        this.client = HttpClient.newBuilder()
+        this.client = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.ALWAYS)
                 .connectTimeout(Duration.ofSeconds(20))
                 .build();
         this.mapper = new ObjectMapper();
